@@ -208,6 +208,23 @@ View(inconclusive_df)
 ##Number that were not effective
 not_eff<-eff_df %>% 
   filter(grepl('no',effective))
+
+##Number effective in Iran
+iran_eff<-eff_df %>% 
+  filter(Location=="Iran") %>% 
+  filter(grepl('yes',effective)) %>% 
+  nrow()
+iran_eff_df<- eff_df %>% 
+  filter(Location=="Iran")
+iran_yes<-iran_eff_df %>% 
+  filter(grepl('yes',effective)) #%>% 
+  pull(Treatment)
+##Number effective in usa
+  usa_eff<-eff_df %>% 
+    filter(Location=="USA") %>% 
+    filter(grepl('yes',effective))# %>% 
+    nrow()
+  view(usa_eff)
 ##IRAN SPECIFIC QUESTIONS##_____________________________________________________
 ##Number of participants from iran
 participants_iran<-iran_df %>% 
